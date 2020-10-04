@@ -1,7 +1,7 @@
+from unittest.mock import patch
 from django.test import TestCase
 from django.contrib.auth import get_user_model
 from core import models
-from unittest.mock import patch
 
 
 def sample_user(email='vkathirvel+test@gmail.com', password='Test123'):
@@ -10,9 +10,6 @@ def sample_user(email='vkathirvel+test@gmail.com', password='Test123'):
 
 
 class ModelTests(TestCase):
-    """
-    docstring
-    """
 
     def test_create_user_with_email_successful(self):
         """
@@ -81,7 +78,7 @@ class ModelTests(TestCase):
     @patch('uuid.uuid4')
     def test_recipe_file_name_uuid(self, mock_uuid):
         """Test that image is saved in the correct location"""
-        uuid = '3bd66fd7-ae61-4333-9183-ede18b1fb7b1'
+        uuid = 'test-uuid'
         mock_uuid.return_value = uuid
         file_path = models.recipe_image_file_path(None, 'myimage.jpg')
 
